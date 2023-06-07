@@ -4,11 +4,14 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
 #include "Minigin.h"
+
 #include "InputManager.h"
-#include "SceneManager.h"
 #include "Renderer.h"
 #include "ResourceManager.h"
+#include "SceneManager.h"
+#include "Timer.h"
 
 SDL_Window* g_window{};
 
@@ -37,6 +40,14 @@ void PrintSDLVersion()
 
 	version = *TTF_Linked_Version();
 	printf("We are linking against SDL_ttf version %u.%u.%u.\n",
+		version.major, version.minor, version.patch);
+
+	SDL_MIXER_VERSION(&version)
+		printf("We compiled against SDL_mixer version %u.%u.%u ...\n",
+			version.major, version.minor, version.patch);
+
+	version = *Mix_Linked_Version();
+	printf("We are linking against SDL_mixer version %u.%u.%u.\n",
 		version.major, version.minor, version.patch);
 }
 
@@ -75,20 +86,37 @@ dae::Minigin::~Minigin()
 	SDL_Quit();
 }
 
+
 void dae::Minigin::Run(const std::function<void()>& load)
 {
 	load();
-
+	
 	auto& renderer = Renderer::GetInstance();
 	auto& sceneManager = SceneManager::GetInstance();
 	auto& input = InputManager::GetInstance();
+	auto& timer = Timer::GetInstance();
 
-	// todo: this update loop could use some work.
+	const float desiredFps = 60;
+	const float fixedFps = 600;
+	timer.SetDesiredDeltaTime(1/desiredFps);
+	timer.SetFixedStep( 1/fixedFps );
+	timer.SetActiveWait(0.001f);
+	
+	timer.Start();
 	bool doContinue = true;
 	while (doContinue)
 	{
+		timer.Update();   
+		
+		while (timer.FixedUpdate())
+		{
+			sceneManager.FixedUpdate(timer.GetFixedStep());
+		}
+		
 		doContinue = input.ProcessInput();
-		sceneManager.Update();
+		sceneManager.Update(timer.GetDeltaTime());
 		renderer.Render();
+
+		timer.SleepForRemainder();
 	}
 }

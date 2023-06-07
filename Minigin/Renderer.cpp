@@ -1,7 +1,8 @@
 #include <stdexcept>
 #include "Renderer.h"
-#include "SceneManager.h"
 #include "Texture2D.h"
+
+#include "SceneManager.h"
 
 int GetOpenGLDriverIndex()
 {
@@ -66,4 +67,4 @@ void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const
 	SDL_RenderCopy(GetSDLRenderer(), texture.GetSDLTexture(), nullptr, &dst);
 }
 
-SDL_Renderer* dae::Renderer::GetSDLRenderer() const { return m_renderer; }
+inline SDL_Renderer* dae::Renderer::GetSDLRenderer() const { return m_renderer; }
