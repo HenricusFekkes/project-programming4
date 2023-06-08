@@ -2,15 +2,15 @@
 #include <map>
 #include <string>
 
-#include "SoundService.h"
+#include "IAudioService.h"
 
 struct Mix_Chunk;
 namespace dae {
-	class SdlSoundService final : public SoundService
+	class SdlAudioService final : public IAudioService
 	{
 	public:
-		SdlSoundService();
-		~SdlSoundService() override;
+		SdlAudioService();
+		~SdlAudioService() override;
 		void Play(sound_id id, int volume) override;
 		sound_id Load(const std::string& filename) override;
 

@@ -9,7 +9,7 @@
 using namespace dae;
 
 RenderComponent::RenderComponent(GameObject& pGameObject)
-	: Component(pGameObject)
+	: IComponent(pGameObject)
 {
 	GetGameObject().AddComponent<TransformComponent>();
 }
@@ -22,8 +22,8 @@ void RenderComponent::FixedUpdate(float)
 
 void RenderComponent::Render()
 {
-	const auto& pos = GetGameObject().GetComponent<TransformComponent>()->GetWorldPosition();
 	if (m_Texture) {
+		const auto& pos = GetGameObject().GetComponent<TransformComponent>()->GetWorldPosition();
 		Renderer::GetInstance().RenderTexture(*m_Texture, pos.x, pos.y);
 	}
 }

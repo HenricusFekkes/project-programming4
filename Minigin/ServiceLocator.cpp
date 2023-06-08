@@ -1,28 +1,28 @@
 #include "ServiceLocator.h"
-#include "SoundService.h"
+#include "IAudioService.h"
 
 using namespace dae;
 
 void ServiceLocator::Initialize()
 {
-	m_pCurrentSoundService = &m_DefaultSoundService;
+	m_pCurrentAudioService = &m_DefaultAudioService;
 }
 
 void ServiceLocator::Shutdown()
 {
-	if (m_pCurrentSoundService != &m_DefaultSoundService)
+	if (m_pCurrentAudioService != &m_DefaultAudioService)
 	{
-		delete m_pCurrentSoundService;
-		m_pCurrentSoundService = &m_DefaultSoundService;
+		delete m_pCurrentAudioService;
+		m_pCurrentAudioService = &m_DefaultAudioService;
 	}
 };
 
-SoundService& ServiceLocator::GetSoundService()
+IAudioService& ServiceLocator::GetSoundService()
 {
-	return *m_pCurrentSoundService;
+	return *m_pCurrentAudioService;
 }
 
-void ServiceLocator::RegisterSoundService(SoundService* ss)
+void ServiceLocator::RegisterSoundService(IAudioService* ss)
 {
-	m_pCurrentSoundService = (ss) ? ss : &m_DefaultSoundService;
+	m_pCurrentAudioService = (ss) ? ss : &m_DefaultAudioService;
 }

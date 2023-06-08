@@ -185,27 +185,25 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Command.h" />
-    <ClInclude Include="Component.h" />
-    <ClInclude Include="EventManager.h" />
-    <ClInclude Include="Events.h" />
+    <ClInclude Include="ICommand.h" />
+    <ClInclude Include="IComponent.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Gamepad.h" />
     <ClInclude Include="InputManager.h" />
-    <ClInclude Include="LoggingSoundService.h" />
+    <ClInclude Include="LoggingAudioService.h" />
     <ClInclude Include="Minigin.h" />
-    <ClInclude Include="NullSoundService.h" />
-    <ClInclude Include="RenderComponent.h" />
+    <ClInclude Include="NullAudioService.h" />
+    <ClInclude Include="IObserver.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
-    <ClInclude Include="SdlSoundService.h" />
+    <ClInclude Include="SdlAudioService.h" />
     <ClInclude Include="ServiceLocator.h" />
     <ClInclude Include="Singleton.h" />
-    <ClInclude Include="SoundService.h" />
-    <ClInclude Include="TextComponent.h" />
+    <ClInclude Include="IAudioService.h" />
+    <ClInclude Include="ISubject.h" />
     <ClInclude Include="Texture2D.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="TransformComponent.h" />
@@ -215,17 +213,15 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Gamepad.cpp" />
     <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="LoggingSoundService.cpp" />
+    <ClCompile Include="LoggingAudioService.cpp" />
     <ClCompile Include="Minigin.cpp" />
-    <ClCompile Include="NullSoundService.cpp" />
-    <ClCompile Include="RenderComponent.cpp" />
+    <ClCompile Include="NullAudioService.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="SdlSoundService.cpp" />
+    <ClCompile Include="SdlAudioService.cpp" />
     <ClCompile Include="ServiceLocator.cpp" />
-    <ClCompile Include="TextComponent.cpp" />
     <ClCompile Include="Texture2D.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TransformComponent.cpp" />

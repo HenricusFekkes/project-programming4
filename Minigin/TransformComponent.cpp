@@ -3,7 +3,7 @@
 
 using namespace dae;
 
-TransformComponent::TransformComponent(GameObject& gameObject) : Component(gameObject)
+TransformComponent::TransformComponent(GameObject& gameObject) : IComponent(gameObject)
 {}
 
 void TransformComponent::Update(float)

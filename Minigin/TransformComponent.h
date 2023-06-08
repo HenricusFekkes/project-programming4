@@ -1,11 +1,11 @@
 #pragma once
 
 #include <glm/glm.hpp>
-#include "Component.h"
+#include "IComponent.h"
 
 
 namespace dae {
-	class TransformComponent final : public Component {
+	class TransformComponent final : public IComponent {
 	public:
 		TransformComponent(GameObject& gameObject);
 

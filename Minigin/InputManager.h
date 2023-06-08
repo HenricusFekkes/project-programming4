@@ -4,14 +4,14 @@
 #include <map>
 #include <SDL_scancode.h>
 
-#include "Command.h"
+#include "ICommand.h"
 #include "Gamepad.h"
 #include "Singleton.h"
 
 namespace dae
 {
 	class Gamepad;
-	class Command;
+	class ICommand;
 	class InputManager final : public Singleton<InputManager>
 	{
 	public:
@@ -24,8 +24,8 @@ namespace dae
 
 		~InputManager();
 		bool ProcessInput();
-		void ButtonBind(unsigned gamepadNr, Gamepad::Button button, InputState buttonState, std::shared_ptr<Command> command);
-		void ButtonBind(SDL_Scancode key, InputState keyState, std::shared_ptr<Command> command);
+		void ButtonBind(unsigned gamepadNr, Gamepad::Button button, InputState buttonState, std::shared_ptr<ICommand> command);
+		void ButtonBind(SDL_Scancode key, InputState keyState, std::shared_ptr<ICommand> command);
 		unsigned AddGamepad();
 
 
@@ -35,8 +35,8 @@ namespace dae
 
 		using GamepadInput = std::tuple<unsigned, Gamepad::Button, InputState>;
 		using KeyboardInput = std::tuple<SDL_Scancode, InputState>;
-		std::map<GamepadInput, std::shared_ptr<Command>> m_ButtonMapping{};
-		std::map<KeyboardInput, std::shared_ptr<Command>> m_KeyMapping{};
+		std::map<GamepadInput, std::shared_ptr<ICommand>> m_ButtonMapping{};
+		std::map<KeyboardInput, std::shared_ptr<ICommand>> m_KeyMapping{};
 		std::vector<std::unique_ptr<Gamepad>> m_Gamepads{};
 	};
 

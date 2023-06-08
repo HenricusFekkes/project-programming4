@@ -1,6 +1,6 @@
 #pragma once
-#include "NullSoundService.h"
-#include "SoundService.h"
+#include "NullAudioService.h"
+#include "IAudioService.h"
 
 namespace dae {
 	class ServiceLocator final
@@ -9,12 +9,12 @@ namespace dae {
 		static void Initialize();
 		static void Shutdown();
 
-		static SoundService& GetSoundService();
-		static void RegisterSoundService(SoundService* ss);
+		static IAudioService& GetSoundService();
+		static void RegisterSoundService(IAudioService* ss);
 		
 	private:
-		inline static NullSoundService m_DefaultSoundService{};
-		inline static SoundService* m_pCurrentSoundService{};
+		inline static NullAudioService m_DefaultAudioService{};
+		inline static IAudioService* m_pCurrentAudioService{};
 
 		// TODO: Other instances ...
 	};

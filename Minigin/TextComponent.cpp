@@ -11,7 +11,7 @@
 using namespace dae;
 
 TextComponent::TextComponent(GameObject& gameObject)
-	: Component(gameObject)
+	: IComponent(gameObject)
 {
 	GetGameObject().AddComponent<RenderComponent>();
 }

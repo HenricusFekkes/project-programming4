@@ -1,9 +1,9 @@
 #pragma once
-#include "SoundService.h"
+#include "IAudioService.h"
 
 
 namespace dae {
-	class NullSoundService final : public SoundService
+	class NullAudioService final : public IAudioService
 	{
 		void Play(sound_id, int) override;
 		sound_id Load(const std::string& ) override;

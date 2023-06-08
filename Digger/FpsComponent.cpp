@@ -5,7 +5,7 @@
 using namespace dae;
 
 FpsComponent::FpsComponent(GameObject& gameObject)
-	: Component(gameObject)
+	: IComponent(gameObject)
 {
 	GetGameObject().AddComponent<TextComponent>();
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Component.h"
+#include "IComponent.h"
 #include <memory>
 #include <string>
 
@@ -8,7 +8,7 @@ namespace dae {
 	class Font;
 	class Texture2D;
 	class RenderComponent;
-	class TextComponent final: public Component
+	class TextComponent final: public IComponent
 	{
 	public:
 		explicit TextComponent(GameObject& gameObject);

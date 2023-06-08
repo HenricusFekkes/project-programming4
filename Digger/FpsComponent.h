@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Component.h"
+#include "IComponent.h"
 
 namespace dae {
-	class FpsComponent final : public Component {
+	class FpsComponent final : public IComponent {
 	public:
 		FpsComponent(GameObject& gameObject);
 

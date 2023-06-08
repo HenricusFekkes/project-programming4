@@ -2,7 +2,7 @@
 #include <memory>
 #include <vector>
 #include <algorithm>
-#include "Component.h"
+#include "IComponent.h"
 #include "RenderComponent.h"
 #include "TransformComponent.h"
 
@@ -38,7 +38,7 @@ namespace dae
 
 
 	private:
-		std::vector<std::unique_ptr<Component>> m_Components{};
+		std::vector<std::unique_ptr<IComponent>> m_Components{};
 		std::unique_ptr<TransformComponent> m_TransformComponent;
 		bool m_IsAlive{ true };
 		

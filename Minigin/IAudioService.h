@@ -6,7 +6,7 @@
 namespace dae {
 	using sound_id = unsigned int;
 
-	class SoundService : public Singleton<SoundService>
+	class IAudioService : public Singleton<IAudioService>
 	{
 	public:
 		virtual void Play(sound_id id, int volume) = 0;

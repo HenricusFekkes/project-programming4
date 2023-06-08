@@ -3,7 +3,7 @@
 
 #include <SDL_events.h>
 
-#include "Command.h"
+#include "ICommand.h"
 
 using namespace dae;
 
@@ -97,13 +97,13 @@ bool InputManager::ProcessKeyboard()
 	return doContinue;
 }
 
-void InputManager::ButtonBind(unsigned gamepadNr, Gamepad::Button button, InputState buttonState, std::shared_ptr<Command> command)
+void InputManager::ButtonBind(unsigned gamepadNr, Gamepad::Button button, InputState buttonState, std::shared_ptr<ICommand> command)
 {
 	m_ButtonMapping[std::make_tuple(gamepadNr, button, buttonState)] = command;
 }
 
 
-void InputManager::ButtonBind(SDL_Scancode key, InputState keyState, std::shared_ptr<Command> command)
+void InputManager::ButtonBind(SDL_Scancode key, InputState keyState, std::shared_ptr<ICommand> command)
 {
 	m_KeyMapping[std::make_tuple(key, keyState)] = command;
 }

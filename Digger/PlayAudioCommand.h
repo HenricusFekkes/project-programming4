@@ -1,11 +1,11 @@
 #pragma once
 #include <string>
-#include "Command.h"
+#include "ICommand.h"
 #include "ServiceLocator.h"
 
 namespace dae
 {
-	class PlayAudioCommand final : public dae::Command
+	class PlayAudioCommand final : public dae::ICommand
 	{
 	public:
 		PlayAudioCommand(const std::string& filename, int volume);

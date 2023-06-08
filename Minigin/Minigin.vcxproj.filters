@@ -12,9 +12,6 @@
     <Filter Include="Source Files\core">
       <UniqueIdentifier>{a1d453e3-bcea-4dd2-b160-613500c15d9f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\event">
-      <UniqueIdentifier>{b2853315-f709-4225-8cbf-e8088690d629}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\io">
       <UniqueIdentifier>{8ad43c7d-7f03-459e-8d2d-a5e5e6eecba6}</UniqueIdentifier>
     </Filter>
@@ -33,16 +30,13 @@
     <Filter Include="Source Files\scenegraph\components">
       <UniqueIdentifier>{3316d86a-fc09-4c9a-b94b-cb3c16a1c4e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\interfaces">
+      <UniqueIdentifier>{b2853315-f709-4225-8cbf-e8088690d629}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Command.h">
-      <Filter>Source Files\event</Filter>
-    </ClInclude>
-    <ClInclude Include="EventManager.h">
-      <Filter>Source Files\event</Filter>
-    </ClInclude>
-    <ClInclude Include="Events.h">
-      <Filter>Source Files\event</Filter>
+    <ClInclude Include="ICommand.h">
+      <Filter>Source Files\interfaces</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>Source Files\io</Filter>
@@ -59,17 +53,8 @@
     <ClInclude Include="Singleton.h">
       <Filter>Source Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="RenderComponent.h">
-      <Filter>Source Files\scenegraph\components</Filter>
-    </ClInclude>
     <ClInclude Include="TransformComponent.h">
       <Filter>Source Files\scenegraph\components</Filter>
-    </ClInclude>
-    <ClInclude Include="TextComponent.h">
-      <Filter>Source Files\scenegraph\components</Filter>
-    </ClInclude>
-    <ClInclude Include="Component.h">
-      <Filter>Source Files\scenegraph</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Source Files\scenegraph</Filter>
@@ -80,19 +65,19 @@
     <ClInclude Include="SceneManager.h">
       <Filter>Source Files\scenegraph</Filter>
     </ClInclude>
-    <ClInclude Include="LoggingSoundService.h">
+    <ClInclude Include="LoggingAudioService.h">
       <Filter>Source Files\services\soundservice</Filter>
     </ClInclude>
-    <ClInclude Include="NullSoundService.h">
+    <ClInclude Include="NullAudioService.h">
       <Filter>Source Files\services\soundservice</Filter>
     </ClInclude>
-    <ClInclude Include="SdlSoundService.h">
+    <ClInclude Include="SdlAudioService.h">
       <Filter>Source Files\services\soundservice</Filter>
     </ClInclude>
     <ClInclude Include="ServiceLocator.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
-    <ClInclude Include="SoundService.h">
+    <ClInclude Include="IAudioService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
     <ClInclude Include="Minigin.h">
@@ -106,6 +91,15 @@
     </ClInclude>
     <ClInclude Include="Texture2D.h">
       <Filter>Source Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="IObserver.h">
+      <Filter>Source Files\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ISubject.h">
+      <Filter>Source Files\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IComponent.h">
+      <Filter>Source Files\interfaces</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -121,13 +115,7 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
-    <ClCompile Include="RenderComponent.cpp">
-      <Filter>Source Files\scenegraph\components</Filter>
-    </ClCompile>
     <ClCompile Include="TransformComponent.cpp">
-      <Filter>Source Files\scenegraph\components</Filter>
-    </ClCompile>
-    <ClCompile Include="TextComponent.cpp">
       <Filter>Source Files\scenegraph\components</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
@@ -139,13 +127,13 @@
     <ClCompile Include="SceneManager.cpp">
       <Filter>Source Files\scenegraph</Filter>
     </ClCompile>
-    <ClCompile Include="LoggingSoundService.cpp">
+    <ClCompile Include="LoggingAudioService.cpp">
       <Filter>Source Files\services\soundservice</Filter>
     </ClCompile>
-    <ClCompile Include="NullSoundService.cpp">
+    <ClCompile Include="NullAudioService.cpp">
       <Filter>Source Files\services\soundservice</Filter>
     </ClCompile>
-    <ClCompile Include="SdlSoundService.cpp">
+    <ClCompile Include="SdlAudioService.cpp">
       <Filter>Source Files\services\soundservice</Filter>
     </ClCompile>
     <ClCompile Include="ServiceLocator.cpp">

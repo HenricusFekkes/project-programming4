@@ -151,27 +151,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ChangeHealthCommand.cpp" />
-    <ClCompile Include="ChangePointsCommand.cpp" />
+    <ClCompile Include="..\Minigin\RenderComponent.cpp" />
+    <ClCompile Include="..\Minigin\TextComponent.cpp" />
     <ClCompile Include="FpsComponent.cpp" />
-    <ClCompile Include="HealthComponent.cpp" />
-    <ClCompile Include="LivesComponent.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MoveCommand.cpp" />
     <ClCompile Include="PlayAudioCommand.cpp" />
     <ClCompile Include="SceneLoaders.cpp" />
-    <ClCompile Include="ScoreComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ChangeHealthCommand.h" />
-    <ClInclude Include="ChangePointsCommand.h" />
+    <ClInclude Include="..\Minigin\RenderComponent.h" />
+    <ClInclude Include="..\Minigin\TextComponent.h" />
     <ClInclude Include="FpsComponent.h" />
-    <ClInclude Include="HealthComponent.h" />
-    <ClInclude Include="LivesComponent.h" />
-    <ClInclude Include="MoveCommand.h" />
     <ClInclude Include="PlayAudioCommand.h" />
     <ClInclude Include="SceneLoaders.h" />
-    <ClInclude Include="ScoreComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
