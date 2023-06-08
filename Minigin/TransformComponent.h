@@ -7,11 +7,11 @@
 namespace dae {
 	class TransformComponent final : public Component {
 	public:
-		explicit TransformComponent(GameObject* pGameObject);
-		~TransformComponent() = default;
+		TransformComponent(GameObject& gameObject);
 
 		void Update(float deltaTime) override;
 		void FixedUpdate(float fixedStep) override;
+		void Render() override;
 
 		const glm::vec3& GetLocalPosition() const;
 		const glm::vec3& GetWorldPosition();

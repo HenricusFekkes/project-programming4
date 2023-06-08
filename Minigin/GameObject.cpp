@@ -8,15 +8,15 @@ using namespace dae;
 
 GameObject::GameObject(Scene* pScene, GameObject* pParent) : m_pScene{pScene}
 {
-	m_TransformComponent = std::make_unique<TransformComponent>(this);
-	m_RenderComponent = std::make_unique<RenderComponent>(this);
+	m_TransformComponent = std::make_unique<TransformComponent>(*this);
+	m_RenderComponent = std::make_unique<RenderComponent>(*this);
 	m_pScene->AddChild(pParent, this);
 }
 
 GameObject::GameObject(Scene* pScene) : m_pScene{pScene}
 {
-	m_TransformComponent = std::make_unique<TransformComponent>(this);
-	m_RenderComponent = std::make_unique<RenderComponent>(this);
+	m_TransformComponent = std::make_unique<TransformComponent>(*this);
+	m_RenderComponent = std::make_unique<RenderComponent>(*this);
 }
 
 void GameObject::Update(float deltaTime) {

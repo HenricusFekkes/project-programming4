@@ -8,10 +8,10 @@
 
 using namespace dae;
 
-RenderComponent::RenderComponent(GameObject* pGameObject)
-	: Component(pGameObject), m_pTransformComponent(pGameObject->GetComponent<TransformComponent>())
+RenderComponent::RenderComponent(GameObject& pGameObject)
+	: Component(pGameObject)
 {
-	assert(pGameObject->ContainsComponent<TransformComponent>());
+	GetGameObject().AddComponent<TransformComponent>();
 }
 
 void RenderComponent::Update(float)
@@ -20,20 +20,20 @@ void RenderComponent::Update(float)
 void RenderComponent::FixedUpdate(float)
 {}
 
-void RenderComponent::Render() const
+void RenderComponent::Render()
 {
-	const auto& pos = m_pTransformComponent->GetWorldPosition();
-	if (m_texture) {
-		Renderer::GetInstance().RenderTexture(*m_texture, pos.x, pos.y);
+	const auto& pos = GetGameObject().GetComponent<TransformComponent>()->GetWorldPosition();
+	if (m_Texture) {
+		Renderer::GetInstance().RenderTexture(*m_Texture, pos.x, pos.y);
 	}
 }
 
 void RenderComponent::SetTexture(const std::string& filename)
 {
-	m_texture = ResourceManager::GetInstance().LoadTexture(filename);
+	m_Texture = ResourceManager::GetInstance().LoadTexture(filename);
 }
 
 void RenderComponent::SetTexture(const std::shared_ptr<Texture2D> texture)
 {
-	m_texture = texture;
+	m_Texture = texture;
 }

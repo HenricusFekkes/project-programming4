@@ -5,7 +5,7 @@
 
 using namespace dae;
 
-LivesComponent::LivesComponent(GameObject* pGameObject) : Component(pGameObject)
+LivesComponent::LivesComponent(GameObject& gameObject) : Component(gameObject)
 {}
 
 void LivesComponent::Update(float)
@@ -13,6 +13,10 @@ void LivesComponent::Update(float)
 
 void LivesComponent::FixedUpdate(float)
 {}
+
+void LivesComponent::Render()
+{}
+
 
 
 int LivesComponent::GetLives() const
@@ -30,5 +34,5 @@ void LivesComponent::SetLives(int lives)
 	{
 		m_Lives = lives;
 	}
-	EventManager<LivesChangedEvent>::GetInstance().Dispatch(LivesChangedEvent{ m_pGameObject, m_Lives });
+	EventManager<LivesChangedEvent>::GetInstance().Dispatch(LivesChangedEvent{ &GetGameObject(), m_Lives });
 }

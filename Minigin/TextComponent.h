@@ -11,18 +11,18 @@ namespace dae {
 	class TextComponent final: public Component
 	{
 	public:
-		explicit TextComponent(GameObject* pGameObject);
+		explicit TextComponent(GameObject& gameObject);
 
 		void Update(float deltaTime) override;
 		void FixedUpdate(float fixedStep) override;
+		void Render() override;
 
 		void SetText(const std::string& text);
 		void SetFont(std::shared_ptr<Font> font);
 	private:
-		std::string m_text{ " " };
-		std::shared_ptr<Font> m_font{};
-		RenderComponent* m_pRenderComponent{};
-		bool m_needsUpdate{};
+		std::string m_Text{ " " };
+		std::shared_ptr<Font> m_Font{};
+		bool m_NeedsUpdate{};
 	};
 }
 

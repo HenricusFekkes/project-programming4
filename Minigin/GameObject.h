@@ -52,8 +52,8 @@ namespace dae
 	public:
 		template <typename T>
 		void AddComponent() {
-			if (!ContainsComponent<T>()) {
-				m_Components.emplace_back(std::make_unique<T>(this));
+			if (not ContainsComponent<T>()) {
+				m_Components.emplace_back(std::make_unique<T>(*this));
 			}
 		}
 
@@ -120,6 +120,18 @@ namespace dae
 		template <>
 		bool ContainsComponent<TransformComponent>() {
 			return true;
+		}
+
+		template <typename T>
+		T* GetOrAddComponent()
+		{
+			T* pComponent = GetComponent<T>();
+			if(not pComponent)
+			{
+				AddComponent<T>();
+				pComponent = GetComponent<T>();
+			}
+			return pComponent;
 		}
 
 #pragma endregion templates

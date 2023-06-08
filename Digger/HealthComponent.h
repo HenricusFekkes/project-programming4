@@ -3,16 +3,15 @@
 
 namespace dae
 {
-	class LivesComponent;
 	class HealthComponent final : public Component
 	{
 	public:
 
-		HealthComponent(GameObject* pGameObject);
+		HealthComponent(GameObject& gameObject);
 
 		void Update(float deltaTime) override;
 		void FixedUpdate(float fixedStep) override;
-
+		void Render() override;
 
 		float GetHealth() const;
 		float GetMaxHealth() const;
@@ -21,7 +20,6 @@ namespace dae
 	private:
 		float m_MaxHealth{100};
 		float m_Health{m_MaxHealth};
-		LivesComponent * const m_pLivesComponent;
 	};
 }
 

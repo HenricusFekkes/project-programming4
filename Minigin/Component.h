@@ -14,10 +14,13 @@ namespace dae {
 
 		virtual void Update(float deltaTime) = 0;
 		virtual void FixedUpdate(float fixedStep) = 0;
+		virtual void Render() = 0;
 
 	protected:
-		explicit Component(GameObject* pGameObject) : m_pGameObject(pGameObject) {}
-		GameObject* GetGameObject() const { return m_pGameObject; }
-		GameObject* const m_pGameObject{};
+		Component(GameObject& gameObject) : m_GameObject(gameObject) {}
+		GameObject& GetGameObject() const { return m_GameObject; }
+
+	private:
+		GameObject& m_GameObject;
 	};
 }

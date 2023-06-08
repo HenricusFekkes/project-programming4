@@ -4,22 +4,25 @@
 
 using namespace dae;
 
-FpsComponent::FpsComponent(GameObject* pGameObject) 
-	: Component(pGameObject), m_pTextComponent(pGameObject->GetComponent<TextComponent>())
+FpsComponent::FpsComponent(GameObject& gameObject)
+	: Component(gameObject)
 {
-	assert(pGameObject->ContainsComponent<TextComponent>());
+	GetGameObject().AddComponent<TextComponent>();
 }
 
 void FpsComponent::Update(float deltaTime)
 {
-	++frameCounter;
-	passedTime += deltaTime;
-	if (passedTime >= 1.f) {
-		m_pTextComponent->SetText(std::to_string(static_cast<int>(frameCounter/passedTime)));
-		frameCounter = 0;
-		passedTime = 0;
+	++m_FrameCounter;
+	m_PassedTime += deltaTime;
+	if (m_PassedTime >= 1.f) {
+		GetGameObject().GetComponent<TextComponent>()->SetText(std::to_string(static_cast<int>(m_FrameCounter/m_PassedTime)));
+		m_FrameCounter = 0;
+		m_PassedTime = 0;
 	}
 }
+
+void FpsComponent::Render()
+{}
 
 void FpsComponent::FixedUpdate(float)
 {} 

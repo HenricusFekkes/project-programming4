@@ -6,13 +6,16 @@
 
 using namespace dae;
 
-ScoreComponent::ScoreComponent(GameObject* pGameObject) : Component(pGameObject)
+ScoreComponent::ScoreComponent(GameObject& gameObject) : Component(gameObject)
 {}
 
 void ScoreComponent::Update(float)
 {}
 
 void ScoreComponent::FixedUpdate(float)
+{}
+
+void  ScoreComponent::Render()
 {}
 
 void ScoreComponent::SetScore(float score)
@@ -25,7 +28,7 @@ void ScoreComponent::SetScore(float score)
 		m_Score = score;
 	}
 	
-	EventManager<ScoreChangedEvent>::GetInstance().Dispatch(ScoreChangedEvent{ m_pGameObject, m_Score });
+	EventManager<ScoreChangedEvent>::GetInstance().Dispatch(ScoreChangedEvent{ &GetGameObject(), m_Score });
 }
 
 float ScoreComponent::GetScore()

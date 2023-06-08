@@ -6,9 +6,11 @@
 
 using namespace dae;
 
-HealthComponent::HealthComponent(GameObject* pGameObject)
-	: Component(pGameObject), m_pLivesComponent{pGameObject->GetComponent<LivesComponent>()}
-{}
+HealthComponent::HealthComponent(GameObject& gameObject)
+	: Component(gameObject)
+{
+	GetGameObject().AddComponent<LivesComponent>();
+}
 
 void HealthComponent::Update(float)
 {}
@@ -16,6 +18,8 @@ void HealthComponent::Update(float)
 void HealthComponent::FixedUpdate(float)
 {}
 
+void HealthComponent::Render()
+{}
 
 float HealthComponent::GetHealth() const
 {
@@ -29,7 +33,7 @@ float HealthComponent::GetMaxHealth() const
 
 void HealthComponent::SetHealth(float health)
 {
-	if(m_pLivesComponent->GetLives() == 0)
+	if(GetGameObject().GetComponent<LivesComponent>()->GetLives() == 0)
 	{
 		return;
 	}
@@ -46,5 +50,5 @@ void HealthComponent::SetHealth(float health)
 	{
 		m_Health = health;
 	}
-	EventManager<HealthChangedEvent>::GetInstance().Dispatch(HealthChangedEvent{ m_pGameObject, m_Health });
+	EventManager<HealthChangedEvent>::GetInstance().Dispatch(HealthChangedEvent{ &GetGameObject(), m_Health });
 }

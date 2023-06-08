@@ -7,10 +7,11 @@ namespace dae
 	{
 	public:
 
-		LivesComponent(GameObject* pGameObject);
+		LivesComponent(GameObject& gameObject);
 
 		void Update(float deltaTime) override;
 		void FixedUpdate(float fixedStep) override;
+		void Render() override;
 
 
 		int GetLives() const;

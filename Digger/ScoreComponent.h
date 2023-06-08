@@ -7,10 +7,11 @@ namespace dae
 	{
 	public:
 
-		ScoreComponent(GameObject* pGameObject);
+		ScoreComponent(GameObject& gameObject);
 
 		void Update(float deltaTime) override;
 		void FixedUpdate(float fixedStep) override;
+		void Render() override;
 
 		void SetScore(float score);
 		float GetScore();
