@@ -12,6 +12,7 @@
 #include "ResourceManager.h"
 #include "SceneManager.h"
 #include "Timer.h"
+#include "Scene.h"
 
 SDL_Window* g_window{};
 
@@ -97,7 +98,7 @@ void dae::Minigin::Run(const std::function<void()>& load)
 	auto& timer = Timer::GetInstance();
 
 	const float desiredFps = 60;
-	const float fixedFps = 600;
+	const float fixedFps = 120;
 	timer.SetDesiredDeltaTime(1/desiredFps);
 	timer.SetFixedStep( 1/fixedFps );
 	timer.SetActiveWait(0.001f);
@@ -106,16 +107,19 @@ void dae::Minigin::Run(const std::function<void()>& load)
 	bool doContinue = true;
 	while (doContinue)
 	{
+		Scene* pScene = sceneManager.GetActiveScene();
+
 		timer.Update();   
 		
 		while (timer.FixedUpdate())
 		{
-			sceneManager.FixedUpdate(timer.GetFixedStep());
+			pScene->FixedUpdate(timer.GetFixedStep());
 		}
 		
 		doContinue = input.ProcessInput();
-		sceneManager.Update(timer.GetDeltaTime());
-		renderer.Render();
+		pScene->Update(timer.GetDeltaTime());
+		pScene->Cleanup();
+		renderer.Render(pScene);
 
 		timer.SleepForRemainder();
 	}

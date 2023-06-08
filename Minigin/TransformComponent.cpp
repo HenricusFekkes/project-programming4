@@ -42,7 +42,7 @@ const glm::vec3& TransformComponent::GetWorldPosition() {
 void TransformComponent::UpdateWorldPosition() {
 	if (m_IsDirty) {
 		GameObject* pParent = GetGameObject().GetParent();
-		if (!pParent) {
+		if (not pParent) {
 			m_WorldPosition = m_LocalPosition;
 		}
 		else {

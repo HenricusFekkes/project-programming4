@@ -1,7 +1,7 @@
 #include <stdexcept>
 #include "Renderer.h"
 #include "Texture2D.h"
-
+#include "Scene.h"
 #include "SceneManager.h"
 
 int GetOpenGLDriverIndex()
@@ -28,13 +28,13 @@ void dae::Renderer::Init(SDL_Window* window)
 	}
 }
 
-void dae::Renderer::Render() const
+void dae::Renderer::Render(Scene* pScene) const
 {
 	const auto& color = GetBackgroundColor();
 	SDL_SetRenderDrawColor(m_renderer, color.r, color.g, color.b, color.a);
 	SDL_RenderClear(m_renderer);
 
-	SceneManager::GetInstance().Render();
+	pScene->Render();
 	
 	SDL_RenderPresent(m_renderer);
 }

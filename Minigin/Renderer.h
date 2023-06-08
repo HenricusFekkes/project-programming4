@@ -5,6 +5,7 @@
 namespace dae
 {
 	class Texture2D;
+	class Scene;
 	/**
 	 * Simple RAII wrapper for the SDL renderer
 	 */
@@ -15,7 +16,7 @@ namespace dae
 		SDL_Color m_clearColor{};	
 	public:
 		void Init(SDL_Window* window);
-		void Render() const;
+		void Render(Scene* pScene) const;
 		void Destroy();
 
 		void RenderTexture(const Texture2D& texture, float x, float y) const;

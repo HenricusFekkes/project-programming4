@@ -13,10 +13,9 @@ namespace dae
 	class Scene;
 	class GameObject final
 	{
-		friend class Scene;
-
 	public:
-		GameObject(Scene* pScene, GameObject* pParent);
+		GameObject(GameObject* pParent);
+		~GameObject();
 
 		GameObject(const GameObject&& other) = delete;
 		GameObject& operator=(const GameObject&& other) = delete;
@@ -26,27 +25,25 @@ namespace dae
 		void Update(float deltaTime);
 		void FixedUpdate(float fixedStep);
 		void Render() const;
+
 		void Destroy();
+		void Cleanup();
 
 		GameObject* GetParent();
 		const std::vector<GameObject*>& GetChildren();
 		bool IsAlive() const;
-
-		GameObject* AddChild();
+		
 		GameObject* AddChild(GameObject* pChild, bool keepWorldPosition = false);
+		GameObject* AddChild();
 
 
 	private:
-		GameObject(Scene* pScene);
-
 		std::vector<std::unique_ptr<Component>> m_Components{};
-		std::unique_ptr<RenderComponent>	m_RenderComponent;
 		std::unique_ptr<TransformComponent> m_TransformComponent;
-		bool isAlive{ true };
-
-		Scene * const m_pScene;
+		bool m_IsAlive{ true };
+		
 		GameObject* m_pParent{};
-		std::vector<GameObject*> m_Children{};
+		std::vector<GameObject*> m_pChildren{};
 
 #pragma region templates
 	public:
@@ -55,11 +52,6 @@ namespace dae
 			if (not ContainsComponent<T>()) {
 				m_Components.emplace_back(std::make_unique<T>(*this));
 			}
-		}
-
-		template <>
-		void AddComponent<RenderComponent>() {
-			return;
 		}
 
 		template <>
@@ -73,14 +65,10 @@ namespace dae
 				return dynamic_cast<T*>(c.get());
 				});
 			if (it == end(m_Components)) {
+				assert(false and "Doesn't contain requested component.");
 				return nullptr;
 			}
 			return dynamic_cast<T*>((*it).get());
-		}
-
-		template <>
-		RenderComponent* GetComponent<RenderComponent>() const {
-			return m_RenderComponent.get();
 		}
 
 		template <>
@@ -96,11 +84,6 @@ namespace dae
 		}
 
 		template <>
-		void RemoveComponent<RenderComponent>() {
-			throw CannotRemoveThisComponentException();
-		}
-
-		template <>
 		void RemoveComponent<TransformComponent>() {
 			throw CannotRemoveThisComponentException();
 		}
@@ -113,27 +96,9 @@ namespace dae
 		}
 
 		template <>
-		bool ContainsComponent<RenderComponent>() {
-			return true;
-		}
-
-		template <>
 		bool ContainsComponent<TransformComponent>() {
 			return true;
 		}
-
-		template <typename T>
-		T* GetOrAddComponent()
-		{
-			T* pComponent = GetComponent<T>();
-			if(not pComponent)
-			{
-				AddComponent<T>();
-				pComponent = GetComponent<T>();
-			}
-			return pComponent;
-		}
-
 #pragma endregion templates
 	};
 }

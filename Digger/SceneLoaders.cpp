@@ -25,15 +25,17 @@
 
 using namespace dae;
 
-void InsertBackground(Scene* scene)
+void InsertBackground(Scene* pScene)
 {
-	auto root = scene->GetRoot();
+	auto root = pScene->GetRoot();
 
 	auto go = root->AddChild();
+	go->AddComponent<RenderComponent>();
 	go->GetComponent<RenderComponent>()->SetTexture("background.tga");
 
 	go = root->AddChild();
 	go->GetComponent<TransformComponent>()->SetLocalPosition(216, 180);
+	go->AddComponent<RenderComponent>();
 	go->GetComponent<RenderComponent>()->SetTexture("logo.tga");
 
 	go = root->AddChild();
@@ -253,9 +255,9 @@ void LoadAudioScene()
 
 	auto& inputManager = InputManager::GetInstance();
 	auto& sceneManager = SceneManager::GetInstance();
-	auto* scene = sceneManager.CreateScene("AudioScene");
+	Scene* pScene = sceneManager.CreateScene("AudioScene");
 
-	InsertBackground(scene);
+	InsertBackground(pScene);
 
 	// Input
 	auto audioCommand = std::make_shared<PlayAudioCommand>("../Data/wave.mp3", 100);

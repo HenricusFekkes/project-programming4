@@ -1,17 +1,13 @@
 #pragma once
-#include <memory>
 #include <string>
-#include <vector>
 
 namespace dae
 {
 	class GameObject;
-	class SceneManager;
 	class Scene final
 	{
-		friend class SceneManager;
-
 	public:
+		Scene(const std::string& name);
 		~Scene();
 		Scene(const Scene& other) = delete;
 		Scene(Scene&& other) = delete;
@@ -21,16 +17,13 @@ namespace dae
 		void Update(float deltaTime);
 		void FixedUpdate(float fixedStep);
 		void Render() const;
-		GameObject* GetRoot();
+		void Cleanup();
 
-		GameObject* AddChild(GameObject* pParent);
-		GameObject* AddChild(GameObject* pParent, GameObject* pChild, bool keepWorldPosition = false);
+		GameObject* GetRoot();
+		GameObject* AddGameObject();
 
 	private:
-		explicit Scene(const std::string& name);
-
-		std::string m_Name;
-		std::vector<GameObject*> m_GameObjects;
-		GameObject * const m_Root;
+		const std::string m_Name;
+		GameObject* m_pRoot{};
 	};
 }
