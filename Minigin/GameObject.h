@@ -36,7 +36,6 @@ namespace dae
 		GameObject* AddChild(GameObject* pChild, bool keepWorldPosition = false);
 		GameObject* AddChild();
 
-
 	private:
 		std::vector<std::unique_ptr<IComponent>> m_Components{};
 		std::unique_ptr<TransformComponent> m_TransformComponent;

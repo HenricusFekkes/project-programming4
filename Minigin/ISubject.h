@@ -12,31 +12,34 @@ namespace dae
 	public:
 		virtual ~ISubject()
 		{
-			for(IObserver* pObserver : m_pObservers)
+			for (IObserver* pObserver : m_pObservers)
 			{
-				pObserver->NotifySubjectDeleted(this);
+				std::erase(pObserver->m_pSubjects, this);
 			}
 		}
 
-		virtual void AttachObserver(IObserver* pObserver)
+		virtual void AttachObserver(IObserver* pObserver) final
 		{
-			pObserver->m_pSubjects.push_back(this);
-			m_pObservers.push_back(pObserver);
+			pObserver->m_pSubjects.emplace_back(this);
+			m_pObservers.emplace_back(pObserver);
 		}
 
-		virtual void DetachObserver(IObserver* pObserver)
+		virtual void DetachObserver(IObserver* pObserver) final
 		{
 			std::erase(pObserver->m_pSubjects, this);
 			std::erase(m_pObservers, pObserver);
 		}
 
-		virtual void NotifyObservers(GameObject* pGameObject, int eventID)
+		virtual void NotifyObservers(GameObject* pGameObject, int eventID) final
 		{
-			for(IObserver* pObserver : m_pObservers)
+			for (IObserver* pObserver : m_pObservers)
 			{
 				pObserver->Notify(pGameObject, eventID);
 			}
 		}
+
+	protected:
+		ISubject() = default;
 
 	private:
 		std::vector<IObserver*> m_pObservers{};

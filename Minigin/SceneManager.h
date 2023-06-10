@@ -10,6 +10,7 @@ namespace dae
 	class SceneManager final : public Singleton<SceneManager>
 	{
 	public:
+		Scene* AddScene(std::unique_ptr<Scene>&& scene);
 		Scene* CreateScene(const std::string& name);
 		void SetActive(const std::string& name);
 

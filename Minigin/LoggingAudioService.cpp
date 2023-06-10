@@ -3,23 +3,16 @@
 
 using namespace dae;
 
-LoggingAudioService::LoggingAudioService(IAudioService* ss) : m_pUnderlyingSS(ss)
+LoggingAudioService::LoggingAudioService(IAudioService* ss) : m_pUnderlyingSoundService(ss)
 {}
 
 LoggingAudioService::~LoggingAudioService()
 {
-	delete m_pUnderlyingSS;
+	delete m_pUnderlyingSoundService;
 }
 
-void LoggingAudioService::Play(sound_id id, int volume)
+void LoggingAudioService::Play(std::shared_ptr<Sound>& sound, int volume)
 {
-	std::cout << "Playing " << id << " at volume " << volume << std::endl;
-	m_pUnderlyingSS->Play(id, volume);
-}
-
-
-sound_id LoggingAudioService::Load(const std::string& filename)
-{
-	std::cout << "Loaded " << filename << std::endl;
-	return m_pUnderlyingSS->Load(filename);
+	std::cout << "Playing sound at volume " << volume << std::endl;
+	m_pUnderlyingSoundService->Play(sound, volume);
 }

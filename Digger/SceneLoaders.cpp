@@ -56,6 +56,7 @@ void LoadAudioScene()
 	InsertBackground(pScene);
 
 	// Input
-	auto audioCommand = std::make_shared<PlayAudioCommand>("../Data/wave.mp3", 100);
+	std::shared_ptr<Sound> sound = ResourceManager::GetInstance().LoadSound("wave.mp3");
+	auto audioCommand = std::make_shared<PlayAudioCommand>(sound, 100);
 	inputManager.ButtonBind(SDL_SCANCODE_SPACE, InputManager::InputState::Down, audioCommand);
 }

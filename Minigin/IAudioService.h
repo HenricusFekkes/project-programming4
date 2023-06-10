@@ -1,15 +1,15 @@
 #pragma once
 #include <string>
-
-#include "Singleton.h"
+#include <memory>
 
 namespace dae {
-	using sound_id = unsigned int;
 
-	class IAudioService : public Singleton<IAudioService>
+	class Sound;
+	class IAudioService
 	{
 	public:
-		virtual void Play(sound_id id, int volume) = 0;
-		virtual sound_id Load(const std::string& filename) = 0;
+		virtual ~IAudioService() = default;
+
+		virtual void Play(std::shared_ptr<Sound>& sound, int volume) = 0;
 	};
 }

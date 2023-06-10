@@ -23,7 +23,7 @@ namespace dae
 			ButtonY = 0x8000
 		};
 
-		explicit Gamepad(int gamepadIndex);
+		Gamepad(int gamepadIndex);
 		~Gamepad();
 
 		void Update();

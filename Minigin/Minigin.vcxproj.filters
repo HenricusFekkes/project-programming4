@@ -27,11 +27,11 @@
     <Filter Include="Source Files\scenegraph">
       <UniqueIdentifier>{d3d49393-05b7-4011-a849-d195041d0192}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\scenegraph\components">
-      <UniqueIdentifier>{3316d86a-fc09-4c9a-b94b-cb3c16a1c4e8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\interfaces">
       <UniqueIdentifier>{b2853315-f709-4225-8cbf-e8088690d629}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\resourcemanagement">
+      <UniqueIdentifier>{d593255f-d65f-42ec-bea6-9056987288f8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -44,17 +44,11 @@
     <ClInclude Include="Gamepad.h">
       <Filter>Source Files\io</Filter>
     </ClInclude>
-    <ClInclude Include="Font.h">
-      <Filter>Source Files\utils</Filter>
-    </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Source Files\utils</Filter>
     </ClInclude>
     <ClInclude Include="Singleton.h">
       <Filter>Source Files\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="TransformComponent.h">
-      <Filter>Source Files\scenegraph\components</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Source Files\scenegraph</Filter>
@@ -71,7 +65,7 @@
     <ClInclude Include="NullAudioService.h">
       <Filter>Source Files\services\soundservice</Filter>
     </ClInclude>
-    <ClInclude Include="SdlAudioService.h">
+    <ClInclude Include="AudioService.h">
       <Filter>Source Files\services\soundservice</Filter>
     </ClInclude>
     <ClInclude Include="ServiceLocator.h">
@@ -86,12 +80,6 @@
     <ClInclude Include="Renderer.h">
       <Filter>Source Files\core</Filter>
     </ClInclude>
-    <ClInclude Include="ResourceManager.h">
-      <Filter>Source Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture2D.h">
-      <Filter>Source Files\utils</Filter>
-    </ClInclude>
     <ClInclude Include="IObserver.h">
       <Filter>Source Files\interfaces</Filter>
     </ClInclude>
@@ -101,6 +89,21 @@
     <ClInclude Include="IComponent.h">
       <Filter>Source Files\interfaces</Filter>
     </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>Source Files\scenegraph</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Source Files\resourcemanagement</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Source Files\resourcemanagement</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture2D.h">
+      <Filter>Source Files\resourcemanagement</Filter>
+    </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>Source Files\resourcemanagement</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InputManager.cpp">
@@ -109,14 +112,8 @@
     <ClCompile Include="Gamepad.cpp">
       <Filter>Source Files\io</Filter>
     </ClCompile>
-    <ClCompile Include="Font.cpp">
-      <Filter>Source Files\utils</Filter>
-    </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="TransformComponent.cpp">
-      <Filter>Source Files\scenegraph\components</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files\scenegraph</Filter>
@@ -133,7 +130,7 @@
     <ClCompile Include="NullAudioService.cpp">
       <Filter>Source Files\services\soundservice</Filter>
     </ClCompile>
-    <ClCompile Include="SdlAudioService.cpp">
+    <ClCompile Include="AudioService.cpp">
       <Filter>Source Files\services\soundservice</Filter>
     </ClCompile>
     <ClCompile Include="ServiceLocator.cpp">
@@ -145,11 +142,20 @@
     <ClCompile Include="Renderer.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
+    <ClCompile Include="TransformComponent.cpp">
+      <Filter>Source Files\scenegraph</Filter>
+    </ClCompile>
     <ClCompile Include="ResourceManager.cpp">
-      <Filter>Source Files\core</Filter>
+      <Filter>Source Files\resourcemanagement</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Source Files\resourcemanagement</Filter>
     </ClCompile>
     <ClCompile Include="Texture2D.cpp">
-      <Filter>Source Files\utils</Filter>
+      <Filter>Source Files\resourcemanagement</Filter>
+    </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>Source Files\resourcemanagement</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -120,7 +120,7 @@ void dae::Minigin::Run(const std::function<void()>& load)
 		pScene->Update(timer.GetDeltaTime());
 		pScene->Cleanup();
 		renderer.Render(pScene);
-
+		 
 		timer.SleepForRemainder();
 	}
 }

@@ -22,6 +22,11 @@ namespace dae
 		GameObject* GetRoot();
 		GameObject* AddGameObject();
 
+		const std::string& getName() const
+		{
+			return m_Name;
+		}
+
 	private:
 		const std::string m_Name;
 		GameObject* m_pRoot{};

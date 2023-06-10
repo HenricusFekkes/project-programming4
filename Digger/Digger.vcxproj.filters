@@ -22,14 +22,14 @@
     <ClCompile Include="FpsComponent.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
-    <ClCompile Include="PlayAudioCommand.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\Minigin\RenderComponent.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
     <ClCompile Include="..\Minigin\TextComponent.cpp">
       <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayAudioCommand.cpp">
+      <Filter>Source Files\commands</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -39,12 +39,14 @@
     <ClInclude Include="FpsComponent.h">
       <Filter>Source Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="PlayAudioCommand.h" />
     <ClInclude Include="..\Minigin\RenderComponent.h">
       <Filter>Source Files\components</Filter>
     </ClInclude>
     <ClInclude Include="..\Minigin\TextComponent.h">
       <Filter>Source Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayAudioCommand.h">
+      <Filter>Source Files\commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

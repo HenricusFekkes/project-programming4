@@ -2,11 +2,11 @@
 
 using namespace dae;
 
-PlayAudioCommand::PlayAudioCommand(const std::string& filename, int volume) : m_AudioId{ServiceLocator::GetSoundService().Load(filename)}, m_Volume{volume}
+PlayAudioCommand::PlayAudioCommand(std::shared_ptr<Sound>& sound, int volume) : m_Sound{sound}, m_Volume{volume}
 {}
 
 bool PlayAudioCommand::Execute()
 {
-	ServiceLocator::GetSoundService().Play(m_AudioId, m_Volume);
+	ServiceLocator::GetInstance().GetSoundService().Play(m_Sound, m_Volume);
 	return true;
 }

@@ -199,11 +199,12 @@
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
-    <ClInclude Include="SdlAudioService.h" />
+    <ClInclude Include="AudioService.h" />
     <ClInclude Include="ServiceLocator.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="IAudioService.h" />
     <ClInclude Include="ISubject.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="Texture2D.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="TransformComponent.h" />
@@ -220,8 +221,9 @@
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="SdlAudioService.cpp" />
+    <ClCompile Include="AudioService.cpp" />
     <ClCompile Include="ServiceLocator.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Texture2D.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TransformComponent.cpp" />

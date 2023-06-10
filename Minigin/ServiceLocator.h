@@ -1,20 +1,21 @@
 #pragma once
 #include "NullAudioService.h"
 #include "IAudioService.h"
+#include "Singleton.h"
 
 namespace dae {
-	class ServiceLocator final
+	class ServiceLocator final : public Singleton<ServiceLocator>
 	{
 	public:
-		static void Initialize();
-		static void Shutdown();
+		void Initialize();
+		void Shutdown();
 
-		static IAudioService& GetSoundService();
-		static void RegisterSoundService(IAudioService* ss);
+		IAudioService& GetSoundService();
+		void RegisterSoundService(IAudioService* ss);
 		
 	private:
-		inline static NullAudioService m_DefaultAudioService{};
-		inline static IAudioService* m_pCurrentAudioService{};
+		NullAudioService m_DefaultAudioService{};
+		IAudioService* m_pCurrentAudioService{};
 
 		// TODO: Other instances ...
 	};

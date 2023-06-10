@@ -100,6 +100,10 @@ const std::vector<GameObject*>& GameObject::GetChildren()
 
 GameObject* GameObject::AddChild(GameObject* pChild, bool keepWorldPosition)
 {
+	if(std::ranges::find(m_pChildren, pChild) != m_pChildren.end())
+	{
+		return pChild;
+	}
 	TransformComponent* pChildTransform = pChild->m_TransformComponent.get();
 
 	if (keepWorldPosition) {
@@ -117,8 +121,7 @@ GameObject* GameObject::AddChild(GameObject* pChild, bool keepWorldPosition)
 	return pChild;
 }
 
-
 GameObject* GameObject::AddChild()
 {
-	return new GameObject(this);
+	return AddChild(new GameObject(nullptr));
 }

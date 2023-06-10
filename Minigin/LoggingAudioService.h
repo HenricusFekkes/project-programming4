@@ -9,10 +9,9 @@ namespace dae {
 		LoggingAudioService(IAudioService* ss);
 		~LoggingAudioService() override;
 
-		void Play(sound_id id, int volume) override;
-		sound_id Load(const std::string& filename) override;
+		void Play(std::shared_ptr<Sound>& sound, int volume) override;
 
 	private:
-		IAudioService* m_pUnderlyingSS;
+		IAudioService* m_pUnderlyingSoundService;
 	};
 }

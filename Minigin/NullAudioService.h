@@ -5,7 +5,7 @@
 namespace dae {
 	class NullAudioService final : public IAudioService
 	{
-		void Play(sound_id, int) override;
-		sound_id Load(const std::string& ) override;
+	public:
+		void Play(std::shared_ptr<Sound>&, int) override;
 	};
 }

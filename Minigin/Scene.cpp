@@ -11,7 +11,6 @@ Scene::~Scene()
 	delete m_pRoot;
 }
 
-
 void Scene::Update(float deltaTime)
 {
 	m_pRoot->Update(deltaTime);

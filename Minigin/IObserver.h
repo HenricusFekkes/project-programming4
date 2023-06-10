@@ -18,10 +18,6 @@ namespace dae
 		}
 
 		virtual void Notify(GameObject* pGameObject, int eventID) = 0;
-		virtual void NotifySubjectDeleted(ISubject* pSubject)
-		{
-			std::erase(m_pSubjects, pSubject);
-		}
 
 	private:
 		std::vector<ISubject*> m_pSubjects{};

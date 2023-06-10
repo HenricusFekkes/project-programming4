@@ -8,11 +8,11 @@ namespace dae
 	class PlayAudioCommand final : public dae::ICommand
 	{
 	public:
-		PlayAudioCommand(const std::string& filename, int volume);
+		PlayAudioCommand(std::shared_ptr<Sound>& sound, int volume);
 		bool Execute() override;
 
 	private:
-		sound_id m_AudioId;
+		std::shared_ptr<Sound> m_Sound;
 		int m_Volume;
 	};
 }
