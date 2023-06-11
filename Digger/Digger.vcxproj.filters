@@ -11,6 +11,9 @@
     <Filter Include="Source Files\components">
       <UniqueIdentifier>{cd867bb3-8206-410d-92ba-a651673b8f1f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\scenes">
+      <UniqueIdentifier>{788190e7-c4cc-4351-aae5-d769b33f94c7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneLoaders.cpp">
@@ -22,14 +25,44 @@
     <ClCompile Include="FpsComponent.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
-    <ClCompile Include="..\Minigin\RenderComponent.cpp">
-      <Filter>Source Files\components</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Minigin\TextComponent.cpp">
-      <Filter>Source Files\components</Filter>
-    </ClCompile>
     <ClCompile Include="PlayAudioCommand.cpp">
       <Filter>Source Files\commands</Filter>
+    </ClCompile>
+    <ClCompile Include="GroundComponent.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="MinerComponent.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionComponent.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveCommand.cpp">
+      <Filter>Source Files\commands</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelScene.cpp">
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="GridComponent.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="TextComponent.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderComponent.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManagerComponent.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerComponent.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreComponent.cpp">
+      <Filter>Source Files\components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -39,14 +72,47 @@
     <ClInclude Include="FpsComponent.h">
       <Filter>Source Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\Minigin\RenderComponent.h">
-      <Filter>Source Files\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Minigin\TextComponent.h">
-      <Filter>Source Files\components</Filter>
-    </ClInclude>
     <ClInclude Include="PlayAudioCommand.h">
       <Filter>Source Files\commands</Filter>
+    </ClInclude>
+    <ClInclude Include="GroundComponent.h">
+      <Filter>Source Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="MinerComponent.h">
+      <Filter>Source Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionComponent.h">
+      <Filter>Source Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveCommand.h">
+      <Filter>Source Files\commands</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelLoader.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelScene.h">
+      <Filter>Source Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GridComponent.h">
+      <Filter>Source Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderComponent.h">
+      <Filter>Source Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="TextComponent.h">
+      <Filter>Source Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="Events.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManagerComponent.h">
+      <Filter>Source Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerComponent.h">
+      <Filter>Source Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreComponent.h">
+      <Filter>Source Files\components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

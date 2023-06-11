@@ -341,7 +341,7 @@ extern DECLSPEC SDL_Joystick *SDLCALL SDL_JoystickFromInstanceID(SDL_JoystickID 
 extern DECLSPEC SDL_Joystick *SDLCALL SDL_JoystickFromPlayerIndex(int player_index);
 
 /**
- * Attach a new virtual joystick.
+ * AddCollider a new virtual joystick.
  *
  * \returns the joystick's device index, or -1 if an error occurred.
  *
@@ -392,7 +392,7 @@ typedef struct SDL_VirtualJoystickDesc
 #define SDL_VIRTUAL_JOYSTICK_DESC_VERSION   1
 
 /**
- * Attach a new virtual joystick with extended properties.
+ * AddCollider a new virtual joystick with extended properties.
  *
  * \returns the joystick's device index, or -1 if an error occurred.
  *
@@ -401,7 +401,7 @@ typedef struct SDL_VirtualJoystickDesc
 extern DECLSPEC int SDLCALL SDL_JoystickAttachVirtualEx(const SDL_VirtualJoystickDesc *desc);
 
 /**
- * Detach a virtual joystick.
+ * RemoveCollider a virtual joystick.
  *
  * \param device_index a value previously returned from
  *                     SDL_JoystickAttachVirtual()

@@ -10,8 +10,10 @@ namespace dae {
 		void Initialize();
 		void Shutdown();
 
+		~ServiceLocator();
+
 		IAudioService& GetSoundService();
-		void RegisterSoundService(IAudioService* ss);
+		void RegisterAudioService(IAudioService* pAudioService);
 		
 	private:
 		NullAudioService m_DefaultAudioService{};

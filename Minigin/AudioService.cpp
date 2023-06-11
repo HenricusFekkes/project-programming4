@@ -12,24 +12,23 @@
 
 using namespace dae;
 
-struct Task
-{
-	Task(std::shared_ptr<Sound>& sound, int volume)
-		: Sound{ sound }, Volume{ volume }
-	{}
-
-	void Play() const
-	{
-		Mix_VolumeChunk(Sound->GetSDLChunk(), Volume);
-		Mix_PlayChannel(-1, Sound->GetSDLChunk(), 0);
-	}
-
-	const std::shared_ptr<Sound> Sound;
-	const int Volume;
-};
-
 class AudioService::AudioServiceImpl final
 {
+	struct Task
+	{
+		Task(std::shared_ptr<Sound>& sound, int volume)
+			: Sound{ sound }, Volume{ volume }
+		{}
+
+		void Process() const
+		{
+			Mix_VolumeChunk(Sound->GetSDLChunk(), Volume);
+			Mix_PlayChannel(-1, Sound->GetSDLChunk(), 0);
+		}
+
+		const std::shared_ptr<Sound> Sound;
+		const int Volume;
+	};
 
 public:
 	AudioServiceImpl()
@@ -58,7 +57,7 @@ public:
 		while (m_IsRunning)
 		{
 			auto lock = std::unique_lock(m_QueueMutex);
-			m_Condition.wait(lock, [&]() { return not m_IsRunning || not m_TaskQueue.empty(); });
+			m_Condition.wait(lock, [&]() { return not m_IsRunning or not m_TaskQueue.empty(); });
 			if(not m_IsRunning)
 			{
 				return;
@@ -70,7 +69,7 @@ public:
 				m_TaskQueue.pop();
 				lock.unlock();
 
-				task.Play();
+				task.Process();
 			}
 		}
 	}

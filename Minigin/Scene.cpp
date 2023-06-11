@@ -40,3 +40,8 @@ GameObject* Scene::AddGameObject()
 {
 	return m_pRoot->AddChild();
 }
+
+void Scene::Initialize()
+{
+	
+}

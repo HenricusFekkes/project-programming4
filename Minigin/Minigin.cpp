@@ -98,7 +98,7 @@ void dae::Minigin::Run(const std::function<void()>& load)
 	auto& timer = Timer::GetInstance();
 
 	const float desiredFps = 60;
-	const float fixedFps = 120;
+	const float fixedFps = 60;
 	timer.SetDesiredDeltaTime(1/desiredFps);
 	timer.SetFixedStep( 1/fixedFps );
 	timer.SetActiveWait(0.001f);

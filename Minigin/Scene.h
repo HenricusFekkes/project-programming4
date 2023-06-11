@@ -4,11 +4,11 @@
 namespace dae
 {
 	class GameObject;
-	class Scene final
+	class Scene
 	{
 	public:
 		Scene(const std::string& name);
-		~Scene();
+		virtual ~Scene();
 		Scene(const Scene& other) = delete;
 		Scene(Scene&& other) = delete;
 		Scene& operator=(const Scene& other) = delete;
@@ -18,6 +18,8 @@ namespace dae
 		void FixedUpdate(float fixedStep);
 		void Render() const;
 		void Cleanup();
+
+		virtual void Initialize();
 
 		GameObject* GetRoot();
 		GameObject* AddGameObject();

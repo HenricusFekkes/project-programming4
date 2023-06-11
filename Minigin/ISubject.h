@@ -1,8 +1,6 @@
 #pragma once
 #include <vector>
 
-#include "IObserver.h"
-
 namespace dae
 {
 	class IObserver;
@@ -10,36 +8,19 @@ namespace dae
 	class ISubject
 	{
 	public:
-		virtual ~ISubject()
-		{
-			for (IObserver* pObserver : m_pObservers)
-			{
-				std::erase(pObserver->m_pSubjects, this);
-			}
-		}
+		virtual ~ISubject();
 
-		virtual void AttachObserver(IObserver* pObserver) final
-		{
-			pObserver->m_pSubjects.emplace_back(this);
-			m_pObservers.emplace_back(pObserver);
-		}
+		virtual void AttachObserver(IObserver* pObserver) final;
 
-		virtual void DetachObserver(IObserver* pObserver) final
-		{
-			std::erase(pObserver->m_pSubjects, this);
-			std::erase(m_pObservers, pObserver);
-		}
+		virtual void DetachObserver(IObserver* pObserver) final;
 
-		virtual void NotifyObservers(GameObject* pGameObject, int eventID) final
-		{
-			for (IObserver* pObserver : m_pObservers)
-			{
-				pObserver->Notify(pGameObject, eventID);
-			}
-		}
+		virtual void NotifyObservers(GameObject* pGameObject, int eventID) final;
 
 	protected:
 		ISubject() = default;
+		
+		virtual void OnDetach(IObserver*) {};
+		virtual void OnAttach(IObserver*) {};
 
 	private:
 		std::vector<IObserver*> m_pObservers{};

@@ -3,18 +3,16 @@
 #include <vector>
 #include <algorithm>
 #include "IComponent.h"
-#include "RenderComponent.h"
 #include "TransformComponent.h"
 
 namespace dae
 {
-	class Event;
 	class CannotRemoveThisComponentException {};
 	class Scene;
 	class GameObject final
 	{
 	public:
-		GameObject(GameObject* pParent);
+		explicit GameObject(GameObject* pParent);
 		~GameObject();
 
 		GameObject(const GameObject&& other) = delete;
@@ -38,7 +36,7 @@ namespace dae
 
 	private:
 		std::vector<std::unique_ptr<IComponent>> m_Components{};
-		std::unique_ptr<TransformComponent> m_TransformComponent;
+		std::unique_ptr<TransformComponent> m_TransformComponent{};
 		bool m_IsAlive{ true };
 		
 		GameObject* m_pParent{};
@@ -47,15 +45,18 @@ namespace dae
 #pragma region templates
 	public:
 		template <typename T>
-		void AddComponent() {
-			if (not ContainsComponent<T>()) {
-				m_Components.emplace_back(std::make_unique<T>(*this));
+		T* AddComponent() {
+			T* pComponent = GetComponent<T>();
+			if (pComponent) {
+				return pComponent;
 			}
+			m_Components.emplace_back(std::make_unique<T>(*this));
+			return dynamic_cast<T*>(m_Components.back().get());
 		}
 
 		template <>
-		void AddComponent<TransformComponent>() {
-			return;
+		TransformComponent* AddComponent<TransformComponent>() {
+			return m_TransformComponent.get();
 		}
 
 		template <typename T>
@@ -64,7 +65,6 @@ namespace dae
 				return dynamic_cast<T*>(c.get());
 				});
 			if (it == end(m_Components)) {
-				assert(false and "Doesn't contain requested component.");
 				return nullptr;
 			}
 			return dynamic_cast<T*>((*it).get());

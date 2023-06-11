@@ -1,5 +1,5 @@
 #pragma once
-#include "ISubject.h"
+#include <vector>
 
 namespace dae
 {
@@ -9,17 +9,17 @@ namespace dae
 	{
 		friend ISubject;
 	public:
-		virtual ~IObserver()
-		{
-			for(ISubject* pSubject : m_pSubjects)
-			{
-				pSubject->DetachObserver(this);
-			}
-		}
+		virtual ~IObserver();
 
 		virtual void Notify(GameObject* pGameObject, int eventID) = 0;
 
+	protected:
+		virtual void OnDetach(ISubject*) {}
+		virtual void OnAttach(ISubject*) {}
+		virtual const std::vector<ISubject*>& GetSubjects();
+
 	private:
+
 		std::vector<ISubject*> m_pSubjects{};
 	};
 }

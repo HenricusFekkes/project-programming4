@@ -4,6 +4,8 @@
 #include "Scene.h"
 #include "SceneManager.h"
 
+using namespace dae;
+
 int GetOpenGLDriverIndex()
 {
 	auto openglIndex = -1;
@@ -18,7 +20,7 @@ int GetOpenGLDriverIndex()
 	return openglIndex;
 }
 
-void dae::Renderer::Init(SDL_Window* window)
+void Renderer::Init(SDL_Window* window)
 {
 	m_window = window;
 	m_renderer = SDL_CreateRenderer(window, GetOpenGLDriverIndex(), SDL_RENDERER_ACCELERATED);
@@ -28,7 +30,7 @@ void dae::Renderer::Init(SDL_Window* window)
 	}
 }
 
-void dae::Renderer::Render(Scene* pScene) const
+void Renderer::Render(Scene* pScene) const
 {
 	const auto& color = GetBackgroundColor();
 	SDL_SetRenderDrawColor(m_renderer, color.r, color.g, color.b, color.a);
@@ -39,7 +41,7 @@ void dae::Renderer::Render(Scene* pScene) const
 	SDL_RenderPresent(m_renderer);
 }
 
-void dae::Renderer::Destroy()
+void Renderer::Destroy()
 {
 	if (m_renderer != nullptr)
 	{
@@ -48,7 +50,7 @@ void dae::Renderer::Destroy()
 	}
 }
 
-void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const float y) const
+void Renderer::RenderTexture(const Texture2D& texture, const float x, const float y) const
 {
 	SDL_Rect dst{};
 	dst.x = static_cast<int>(x);
@@ -57,7 +59,7 @@ void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const
 	SDL_RenderCopy(GetSDLRenderer(), texture.GetSDLTexture(), nullptr, &dst);
 }
 
-void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const float y, const float width, const float height) const
+void Renderer::RenderTexture(const Texture2D& texture, const float x, const float y, const float width, const float height) const
 {
 	SDL_Rect dst{};
 	dst.x = static_cast<int>(x);
@@ -67,4 +69,12 @@ void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const
 	SDL_RenderCopy(GetSDLRenderer(), texture.GetSDLTexture(), nullptr, &dst);
 }
 
-inline SDL_Renderer* dae::Renderer::GetSDLRenderer() const { return m_renderer; }
+inline SDL_Renderer* Renderer::GetSDLRenderer() const
+{
+	return m_renderer;
+}
+
+void Renderer::GetDimensions(int* width, int* height) const
+{
+	SDL_GetWindowSize(m_window, width, height);
+}

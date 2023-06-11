@@ -214,6 +214,8 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Gamepad.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="IObserver.cpp" />
+    <ClCompile Include="ISubject.cpp" />
     <ClCompile Include="LoggingAudioService.cpp" />
     <ClCompile Include="Minigin.cpp" />
     <ClCompile Include="NullAudioService.cpp" />

@@ -89,9 +89,6 @@
     <ClInclude Include="IComponent.h">
       <Filter>Source Files\interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="TransformComponent.h">
-      <Filter>Source Files\scenegraph</Filter>
-    </ClInclude>
     <ClInclude Include="ResourceManager.h">
       <Filter>Source Files\resourcemanagement</Filter>
     </ClInclude>
@@ -103,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="Font.h">
       <Filter>Source Files\resourcemanagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>Source Files\scenegraph</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -142,9 +142,6 @@
     <ClCompile Include="Renderer.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="TransformComponent.cpp">
-      <Filter>Source Files\scenegraph</Filter>
-    </ClCompile>
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Source Files\resourcemanagement</Filter>
     </ClCompile>
@@ -156,6 +153,15 @@
     </ClCompile>
     <ClCompile Include="Font.cpp">
       <Filter>Source Files\resourcemanagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformComponent.cpp">
+      <Filter>Source Files\scenegraph</Filter>
+    </ClCompile>
+    <ClCompile Include="IObserver.cpp">
+      <Filter>Source Files\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="ISubject.cpp">
+      <Filter>Source Files\interfaces</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

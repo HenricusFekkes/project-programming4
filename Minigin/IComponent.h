@@ -1,8 +1,6 @@
 #pragma once
 
 namespace dae {
-
-	class Event;
 	class GameObject;
 	class IComponent {
 	public:
@@ -16,9 +14,10 @@ namespace dae {
 		virtual void FixedUpdate(float fixedStep) = 0;
 		virtual void Render() = 0;
 
-	protected:
-		IComponent(GameObject& gameObject) : m_GameObject(gameObject) {}
 		GameObject& GetGameObject() const { return m_GameObject; }
+
+	protected:
+		explicit IComponent(GameObject& gameObject) : m_GameObject(gameObject) {}
 
 	private:
 		GameObject& m_GameObject;

@@ -1,14 +1,12 @@
 #include "GameObject.h"
-
-#include "RenderComponent.h"
 #include "TransformComponent.h"
 #include "Scene.h"
 
 using namespace dae;
 
-GameObject::GameObject(GameObject* pParent)
+GameObject::GameObject(GameObject* pParent) :
+	m_TransformComponent{ std::make_unique<TransformComponent>(*this) }
 {
-	m_TransformComponent = std::make_unique<TransformComponent>(*this);
 
 	if (pParent)
 	{
