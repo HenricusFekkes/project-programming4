@@ -30,24 +30,29 @@ void LevelLoader::LoadTunnel(std::stringstream& ss, Scene* pScene)
 {
 	int x, y, w, h;
 	ss >> x >> y >> w >> h;
+	pScene;
 }
 
 void LevelLoader::LoadPlayer(std::stringstream& ss, Scene* pScene)
 {
-	
+	ss;
+	pScene;
 }
 
 void LevelLoader::LoadRock(std::stringstream& ss, Scene* pScene)
 {
-	
+	ss;
+	pScene;
 }
 
 void LevelLoader::LoadEmerald(std::stringstream& ss, Scene* pScene)
 {
-	
+	ss;
+	pScene;
 }
 
 void LevelLoader::LoadSpawner(std::stringstream& ss, Scene* pScene)
 {
-	
+	ss;
+	pScene;
 }

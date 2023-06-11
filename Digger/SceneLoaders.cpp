@@ -115,7 +115,6 @@ void LoadTestingScene()
 	pFpsCounter->AddComponent<FpsComponent>();
 
 	// Testing
-	auto pGrid = level->GetComponent<GroundComponent>();
 }
 
 void LoadLevelScene()

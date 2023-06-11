@@ -14,22 +14,20 @@ MinerComponent::~MinerComponent()
 	
 }
 
-void MinerComponent::Update(float deltaTime)
-{
-	
-}
-
-void MinerComponent::FixedUpdate(float fixedStep)
+void MinerComponent::Update(float)
 {
 	auto pGridComponent = m_pLevel->GetComponent<GroundComponent>();
 	auto position = GetGameObject().GetComponent<TransformComponent>()->GetLocalPosition();
-	pGridComponent->RemoveCircle(position.x, position.y, m_Radius);
+	pGridComponent->RemoveCircle(static_cast<int>(position.x), static_cast<int>(position.y), static_cast<int>(m_Radius));
 }
+
+void MinerComponent::FixedUpdate(float)
+{}
 
 void MinerComponent::Render()
 {}
 
-void MinerComponent::SetRadius(int radius)
+void MinerComponent::SetRadius(float radius)
 {
 	m_Radius = radius;
 }

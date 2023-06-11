@@ -16,10 +16,10 @@ PlayerComponent::PlayerComponent(GameObject& gameObject)
 	gameObject.AddComponent<CollisionComponent>()->AttachObserver(this);
 }
 
-void PlayerComponent::Update(float deltaTime)
+void PlayerComponent::Update(float)
 {}
 
-void PlayerComponent::FixedUpdate(float fixedStep)
+void PlayerComponent::FixedUpdate(float)
 {}
 
 void PlayerComponent::Render()
@@ -27,7 +27,7 @@ void PlayerComponent::Render()
 
 void PlayerComponent::Notify(GameObject* pGameObject, int eventID)
 {
-	if (eventID != Event::Collision)
+	if (eventID != Collision)
 	{
 		return;
 	}

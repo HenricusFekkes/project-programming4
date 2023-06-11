@@ -18,15 +18,11 @@ GroundComponent::~GroundComponent()
 	delete[] m_Pixels;
 }
 
-void GroundComponent::Update(float deltaTime)
-{
-	
-}
+void GroundComponent::Update(float)
+{}
 
-void GroundComponent::FixedUpdate(float fixedStep)
-{
-	
-}
+void GroundComponent::FixedUpdate(float)
+{}
 
 void GroundComponent::Render()
 
@@ -65,6 +61,10 @@ void GroundComponent::SetDimensions(int width, int height)
 
 void GroundComponent::RemovePixel(int x, int y)
 {
+	if (x < 0 or x >= m_Width)
+		return;
+	if (y < 0 or y >= m_Height)
+		return;
 	m_Pixels[x + y * m_Width] = 0;
 	m_IsDirty = true;
 }
@@ -82,11 +82,6 @@ void GroundComponent::RemoveRectangle(int x, int y, int width, int height)
 
 void GroundComponent::RemoveCircle(int x, int y, int radius)
 {
-	int left = x - radius;
-	int top = y - radius;
-	int right = x + radius;
-	int bot = y - radius;
-
 	int radiusSqr = radius * radius;
 
 	for (int xi{ -radius }; xi < radius; ++xi)

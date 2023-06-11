@@ -64,6 +64,15 @@
     <ClCompile Include="ScoreComponent.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
+    <ClCompile Include="MyMoveCommand.cpp">
+      <Filter>Source Files\commands</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveComponent.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="Directions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneLoaders.h">
@@ -113,6 +122,15 @@
     </ClInclude>
     <ClInclude Include="ScoreComponent.h">
       <Filter>Source Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="MyMoveCommand.h">
+      <Filter>Source Files\commands</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveComponent.h">
+      <Filter>Source Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="Directions.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

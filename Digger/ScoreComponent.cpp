@@ -13,10 +13,10 @@ ScoreComponent::ScoreComponent(GameObject& gameObject)
 	gameObject.AddComponent<CollisionComponent>()->AttachObserver(this);
 }
 
-void ScoreComponent::Update(float deltaTime)
+void ScoreComponent::Update(float)
 {}
 
-void ScoreComponent::FixedUpdate(float fixedStep)
+void ScoreComponent::FixedUpdate(float)
 {}
 
 void ScoreComponent::Render()

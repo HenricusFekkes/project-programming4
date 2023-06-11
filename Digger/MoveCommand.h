@@ -1,11 +1,13 @@
 #pragma once
 #include <glm/vec3.hpp>
 
+#include "GameObject.h"
 #include "ICommand.h"
 
 
 namespace dae
 {
+
 	class MoveCommand final : public ICommand
 	{
 	public:

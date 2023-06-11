@@ -12,11 +12,11 @@ namespace dae {
 		void FixedUpdate(float fixedStep) override;
 		void Render() override;
 
-		void SetRadius(int radius);
+		void SetRadius(float radius);
 		void SetLevel(GameObject* pLevel);
 
 	private:
-		int m_Radius{};
+		float m_Radius{};
 		GameObject* m_pLevel{};
 	};
 }
